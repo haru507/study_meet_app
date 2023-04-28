@@ -2,7 +2,8 @@
 
 ![study_meet.png](/assets/study_meet.png)
 
-4/27(木)19:00 ~ 20:00 の勉強会で使用します。
+内容は、[こちら](/assets/study_meet_slide.pdf)にPDFがありますのでご参照ください。
+
 下記内容を載せております。
 HTML, CSS, Javascript + Firebaseを使ったサンプルアプリ
 
@@ -11,11 +12,11 @@ HTML, CSS, Javascript + Firebaseを使ったサンプルアプリ
 
 - まず初めにサンプルアプリをローカルにダウンロードします。
 ```
-$ git clone
+$ git clone https://github.com/haru507/study_meet_app
 ```
 
 - Firebaseへ接続するための認証情報を追加します。
-[こちら](https://drive.google.com/file/d/1SCosUszVBKVIcA3i6l2_d1A1A_DEuZNb/view?usp=share_link)をクリックして、`config.json`をダウンロードし、 `src/api` 配下にファイルを配置します。
+
 
 - 拡張機能を追加します。
 左のメニューバーの四角の拡張機能をクリックして、
