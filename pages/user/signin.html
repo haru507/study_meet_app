@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サインイン</title>
+</head>
+
+<body>
+    <h1>サインイン</h1>
+
+    <div>
+        <div>
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div>
+            <label for="password">パスワード</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <div>
+            <a href="/pages/user/signup.html">会員登録はこちら</a>
+        </div>
+
+        <div>
+            <button type="button" id="prevButton">戻る</button>
+            <button type="button" id="signInButton">ログイン</button>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script type="module">
+        import { signIn } from '/src/api/user/signIn.js';
+        import { checkUserInputEmpty } from '/src/components/user/checkUserInputEmpty.js';
+        import { User } from '/src/domain/User.js';
+
+        const signInButton = document.getElementById('signInButton');
+        signInButton.addEventListener('click', () => {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            if (checkUserInputEmpty()) {
+                return false;
+            }
+            const user = new User(email, password);
+            signIn(user)
+                .then((isSignedIn) => {
+                    if (isSignedIn) {
+                        location.href = '/index.html';
+                    }
+                });
+        })
+    </script>
+</body>
+
+</html>

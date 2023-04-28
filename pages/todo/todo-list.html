@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/style.css" rel="stylesheet">
+    <title>Todo 一覧</title>
+</head>
+
+<body>
+    <h1>TODO一覧</h1>
+    <button id="prevButton">戻る</button>
+    <h3><a href="./todo-edit.html">TODOを作成する</a></h3>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th>Complete</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="todo-list">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/js/main.js" type="text/javascript"></script>
+    <script type="module" defer>
+        import { getTodo } from '/src/api/todo/getTodo.js';
+        import { addTodoTableComponent } from '/src/components/todo/addTodoTableComponent.js';
+
+        getTodo()
+            .then((docs) => {
+                addTodoTableComponent(docs);
+            })
+            .catch((error) => {
+                console.error(error); // エラーが発生した場合はログに出力
+            });
+    </script>
+</body>
+
+</html>

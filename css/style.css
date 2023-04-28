@@ -1,0 +1,49 @@
+/* index.html */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.header {
+    background-color: #444;
+    color: #fff;
+    padding: 10px;
+}
+
+.nav {
+    background-color: #eee;
+    padding: 10px;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu li {
+    border-bottom: 1px solid #444;
+}
+
+.menu li a {
+    color: #444;
+    text-decoration: none;
+}
+/* index.html */
+
+/* /pages/todo/todo-list.html */
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: lightgray;
+}
+/* /pages/todo/todo-list.html */

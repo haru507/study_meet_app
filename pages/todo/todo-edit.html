@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo 作成</title>
+</head>
+
+<body>
+    <h1>TODO新規作成</h1>
+    <div>
+        <label for="todo-title">タイトル:</label>
+        <input id="todo-title" type="text" value="">
+    </div>
+    <div>
+        <label for="todo-status">ステータス:</label>
+        <input id="todo-status" type="checkbox" value="">
+    </div>
+    <div>
+    </div>
+    <div>
+        <button id="prevButton">戻る</button>
+        <button id="regist">登録する</button>
+    </div>
+
+    <script src="/js/main.js" defer></script>
+    <script type="module" defer>
+        import { checkTodoEmpty } from "/src/components/todo/checkTodoEpmty.js";
+        import { addTodo } from '/src/api/todo/addTodo.js';
+        import { Todo } from '/src/domain/Todo.js';
+
+        const registButton = document.getElementById("regist");
+        registButton.addEventListener('click', () => {
+            const title = document.getElementById('todo-title').value;
+            const status = document.getElementById('todo-status').value;
+            if (checkTodoEmpty(title, status)) {
+                return;
+            }
+            console.log(status);
+            const todo = new Todo(title, status);
+            addTodo(todo)
+                .then(() => {
+                    window.location = '/pages/todo/todo-list.html'
+                })
+                .catch(e => {
+                    console.log(e);
+                })
+        });
+    </script>
+</body>
+
+</html>
